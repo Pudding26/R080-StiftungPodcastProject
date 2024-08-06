@@ -1,0 +1,41 @@
+@startuml
+
+start
+
+
+fork
+:Actor 1;
+fork again
+:Actor 2;
+fork again
+:Actor ...;
+fork again
+:Actor n;
+end fork
+:individual Actor prompting script;
+
+fork
+    split
+    :Agent1;
+    :Character description;
+    split again
+    :Agent2;
+    :talking points;
+    :talking arguments;
+    end split
+:Agent3;
+:generation of the podcast manuscript;
+fork again
+:Agent4;
+:Translation into natural Language;
+end fork
+
+:Profit;
+@enduml
+
+note right
+ - beinhaltet neben inhalt auch die
+   Definition des charakters des actors
+end note
+:erstellung eines gesprächsplans in stichworten;
+:Formulierung eines fließtextes;
