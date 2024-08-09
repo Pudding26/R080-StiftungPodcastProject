@@ -1,0 +1,18 @@
+@startuml
+
+start
+:MemePArser;
+:GIF chatGPT Context;
+:Generate Idea;
+:Translate in MemeFTextormat;
+:logic quality check;
+:(TranslateforMemeGen);
+:send to MemeGen;
+
+:Download Image;
+:Send via WhatsApp;
+
+
+
+stop
+@enduml

@@ -1,0 +1,16 @@
+
+    4.) Text1
+        - extract the first text section
+    5.) Text2
+        - extract the second text section
+    6.) Text3
+        - extract the third text section
+    7.) Text4
+        - extract the fourth text section
+
+
+
+
+
+### Output 2
+Additionally I want a summarization on who (column"from) has the best humor. formulate why. Rank the 10 best memes on your opinion. Include the reactions column in your argumentation.

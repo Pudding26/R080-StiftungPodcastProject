@@ -1,0 +1,40 @@
+@startuml
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define table(x) entity x << (T, white) >>
+
+
+
+
+
+table( MemeData ) {
+  column( id ): VARCHAR(255)
+  ---
+  column( timeStamp ): VARCHAR(255)
+  column( name ): VARCHAR(255)
+  column( imageID ): VARCHAR(255)
+  ---
+  column( reactions ): LIST
+  ---
+  column( GPTContext ): Text
+  ---
+}
+
+table( Reactions ) {
+  column( id ): VARCHAR(255)
+  ---
+  column( timeStamp ): VARCHAR(255)
+  column( name ): VARCHAR(255)
+  column( imageID ): VARCHAR(255)
+  ---
+  column( reactions ): LIST
+  ---
+  column( GPTContext ): Text
+  ---
+}
+
+
+
+
+@enduml

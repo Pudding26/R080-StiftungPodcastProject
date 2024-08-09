@@ -1,0 +1,69 @@
+
+# Task
+
+We want to analyze a whatsApp Group with Memes. We want to see which ones are the funniest and best suited for the environment they are realted to. To process the data later on we need it in a format than can easily be transfered in a tabular format.
+
+You cann assist us best if you do the following:
+
+
+I will give you a row of a csv file.
+
+In each row you will find in the column "image.link" a link to a meme. Analyze these Memes as instructed.
+
+
+# Input Context
+
+- id: is a unique id of the row
+- reactions: shows how the other users have itneracted with the meme
+- image.link: is a web hook that allows you to access the meme
+- from: is the alias of the createor of the meme
+
+## Additional Context
+You are interacting with an AI model designed to understand and analyze various scholarship and foundation programs, particularly those related to academic excellence and talent promotion. One such organization is the "Studienstiftung des deutschen Volkes" (German Academic Scholarship Foundation), which is Germany's largest and most prestigious scholarship foundation.
+
+The Studienstiftung des deutschen Volkes supports students and doctoral candidates with outstanding academic records, intellectual curiosity, and a commitment to social responsibility. Its scholars are selected based on a rigorous process that evaluates academic performance, personal achievements, leadership potential, and a dedication to contributing positively to society.
+
+As you interact with this model, consider the following aspects related to the Studienstiftung des deutschen Volkes:
+
+- Academic Excellence: How the scholarship emphasizes outstanding academic performance and intellectual ability.
+
+- Leadership and Social Responsibility: The foundation’s focus on nurturing leaders who are committed to the common good.
+- Personal Development: The role of the foundation in supporting the personal and professional growth of its scholars through networking opportunities, seminars, and workshops.
+- Cultural and Social Engagement: The importance placed on cultural understanding, social responsibility, and active participation in society.
+- Selection Process: The competitive and selective nature of the application process, including the importance of personal interviews, recommendations, and essays in demonstrating eligibility.
+
+When creating responses or generating content related to this foundation, the LLM should consider the values, goals, and characteristics that define the Studienstiftung des deutschen Volkes, ensuring that any references align with the foundation's mission and the high standards it upholds.
+## Output 
+### Output 1
+
+I want you to return me an object in the format provided in the with additional columns. The answers you give us have to be brief and precise. Ab rief answer means that you can use 3 Sentences per column.
+
+These columns are:
+
+
+1) description
+    - describe briefly what the Meme shows. Analyze what the funny and or interesting thing about the meme is.  Use for answer on this column a maximum 50 Words.
+
+2) category
+    - classify the meme in general clusters that seem to be a reacurring theme. Use for answer on this column a maximum 15 Words
+
+3) stiftiWorthy
+    - say if the meme is expected in a Sommerakademie, argue why or why not the student should stay in the program. related to the ideals of the studienstifung as well as the associated stereotypes.
+
+4) memeTemplate
+    - analyze what the name of the Meme Template is.  Use for answer on this column a maximum 4 Words.
+
+The Output format needs to be a JSON like this:
+
+```
+{
+    id: str
+    image_link: str
+    from_name: str
+    description: str
+    category: str
+    stiftiWorthy: str
+}
+```
+
+

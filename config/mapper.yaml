@@ -1,0 +1,26 @@
+DataFiles:
+  MemeGroup: 120363320507063815@g.us
+  MainGroup: 120363308042473352@g.us
+  Hüttentour: 120363291609102995@g.us
+  Tischtennis: 120363322715413765@g.us
+  Couscous: 120363320946109574@g.us
+
+
+paths:
+  WA_importPath: data/raw_data
+  WA_DataProcessed: data/processed_data
+  WA_DataConcat: data/concat_data
+  DataAnonymized: data/annomyzed_data
+  MemeDataRaw: data/concat_data/image_concatenated.csv
+  
+mapper:
+  numberMapper: config/numberMapper.csv
+
+
+annomyzer:
+  colsToAnnomyze:
+    - from
+
+  colsToDelete:
+    - from_name
+    
