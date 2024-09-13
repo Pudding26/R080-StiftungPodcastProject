@@ -101,7 +101,9 @@ class MemeParser:
             from_name: str
             description: str
             category: str
+            stiftyRating: str
             stiftiWorthy: str
+            caption: str
 
         #class Output_2(BaseModel):
 
@@ -117,6 +119,7 @@ class MemeParser:
             #row_prompt = prompt.format(**row_data)  # Adjust based on your prompt needs
             
             # Prepare the messages for the GPT-4 model
+
             completion = client.beta.chat.completions.parse(
                 model="gpt-4o-2024-08-06",
                 messages=[
@@ -124,7 +127,7 @@ class MemeParser:
                     {"role": "user", "content": prompt},
                     {"role": "user", "content": f"Here is the CSV data for this row: {row_data}"}
                 ],
-                max_tokens=500,
+                #max_tokens=1000,
                 response_format=Output_1
             )   
             
@@ -144,38 +147,7 @@ class MemeParser:
         }
 
 
-    def process_csv_with_gpt(csv_file_path, output_csv_file, prompt_template, system_prompt):
-        # Load the CSV file into a pandas DataFrame
-        df = pd.read_csv(csv_file_path)
-        
-        # Initialize a list to store GPT responses
-        gpt_responses = []
-        
-        # Loop through each row in the DataFrame
-        for index, row in df.iterrows():
-            # Convert the row to a dictionary or format as needed
-            row_data = row.to_dict()
-            
-            # Construct the prompt using the row data and the prompt template
-            prompt = prompt_template.format(**row_data)
-            
-            # Send the data to the OpenAI API with a system prompt
-            response = openai.Completion.create(
-                engine="text-davinci-003",  # or any other model you are using
-                prompt=f"{system_prompt}\n\n{prompt}",
-                max_tokens=150
-            )
-            
-            # Extract the text response and add it to the list
-            gpt_responses.append(response['choices'][0]['text'].strip())
-        
-        # Add the GPT responses as a new column in the DataFrame
-        df['GPT_Responses'] = gpt_responses
-        
-        # Save the updated DataFrame to a new CSV file
-        df.to_csv(output_csv_file, index=False)
-        
-        print(f"Processed CSV saved as {output_csv_file}")
+
 
 
     def extract_json_from_string(json_string):

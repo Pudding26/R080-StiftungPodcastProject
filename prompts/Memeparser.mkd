@@ -36,23 +36,31 @@ When creating responses or generating content related to this foundation, the LL
 ## Output 
 ### Output 1
 
-I want you to return me an object in the format provided in the with additional columns. The answers you give us have to be brief and precise. Ab rief answer means that you can use 3 Sentences per column.
+I want you to return me an object in the format provided in the with additional columns. The answers you give us have to be brief and precise.
+
+You must limit your Answers to a maximum of 3 Sentences each.
+
 
 These columns are:
 
 
 1) description
-    - describe briefly what the Meme shows. Analyze what the funny and or interesting thing about the meme is.  Use for answer on this column a maximum 50 Words.
+    - describe briefly what the Meme shows. Analyze what the funny and or interesting thing about the meme is. The answer of this reply can not exceed 50 tokens.
 
 2) category
-    - classify the meme in general clusters that seem to be a reacurring theme. Use for answer on this column a maximum 15 Words
-
+    - classify the meme in general clusters that seem to be a reacurring theme. The answer of this reply can not exceed 50 tokens.
 3) stiftiWorthy
-    - say if the meme is expected in a Sommerakademie, argue why or why not the student should stay in the program. related to the ideals of the studienstifung as well as the associated stereotypes.
+    - say if the meme is expected in a Sommerakademie, argue why or why not the student should stay in the program. related to the ideals of the studienstifung as well as the associated stereotypes. The answer of this reply can not exceed 50 tokens.
 
-4) memeTemplate
-    - analyze what the name of the Meme Template is.  Use for answer on this column a maximum 4 Words.
+4) stiftyRating
+    - give a Rating of 1 to 100. bet critical! and derive you intital number by something between +/- ten. The answer of this reply can not exceed 50 tokens.
 
+5) memeTemplate
+    - analyze what the name of the Meme Template is. The answer of this reply can not exceed 50 tokens.
+
+
+6) caption
+    - return the text on the meme as a string. The answer of this reply can not exceed 50 tokens.
 The Output format needs to be a JSON like this:
 
 ```
@@ -62,7 +70,10 @@ The Output format needs to be a JSON like this:
     from_name: str
     description: str
     category: str
+    stiftyRating: int
     stiftiWorthy: str
+    memeTemplate: str
+    caption: str
 }
 ```
 

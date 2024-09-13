@@ -57,7 +57,34 @@ if __name__ == "__main__":
 
     GPT_Answer = meme_parser.gptPrompt_analyzeAllMemes(prompt = prompt_text, system_prompt=system_prompt, csv_file=memeDataFiltered)
 
-    
-    #print(f"Messages from group {group_id} have been saved to {file_name}.")    file_name = "test.json"
+    data = pd.DataFrame()
+    # Extract the content from each dictionary
+    for i in range(len(GPT_Answer["responses"])):
 
-    print("done")
+        row = []
+        data_row = GPT_Answer["responses"][i]
+        data_row = data_row["content"]
+
+        row.append(data_row.caption)
+        row.append(data_row.category)
+        row.append(data_row.description)
+        row.append(data_row.from_name)
+        row.append(data_row.id)
+        row.append(data_row.image_link)
+        row.append(data_row.stiftiWorthy)
+        row.append(data_row.stiftyRating)
+        
+        
+        row = pd.DataFrame(row) 
+        # Convert the list of content dictionaries to a DataFrame
+        
+        data = pd.concat([data, row])
+        
+
+        # Display the DataFrame
+        print(data)
+
+
+        #print(f"Messages from group {group_id} have been saved to {file_name}.")    file_name = "test.json"
+
+        print("done")
